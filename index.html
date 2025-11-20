@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --color-darkest: #1E3A8A; /* Indigo 800 */
+        --color-dark: #3B82F6;    /* Blue 500 */
+        --color-medium: #60A5FA; /* Blue 400 */
+        --color-light: #93C5FD;   /* Blue 300 */
+        --color-lightest: #BFDBFE;/* Blue 200 */
+        --color-text-light: #E0E7FF; /* Indigo 100 */
+        --color-text-dark: #1E293B;  /* Slate 800 */
+      }
+      
+      /* Custom scrollbar for a premium feel */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-darkest);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-medium);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-light);
+      }
+      /* Custom font families */
+      .font-serif {
+        font-family: 'Playfair Display', serif;
+      }
+      .font-sans {
+        font-family: 'Lato', sans-serif;
+      }
+
+      /* Parallax background effect */
+      .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      
+      /* Animation for elements fading in on scroll */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+      }
+
+      /* Animation for the 'confianza' pulse */
+      @keyframes pulse-glow {
+        0%, 80%, 100% {
+          text-shadow: none;
+          color: inherit;
+        }
+        90% {
+          text-shadow: 0 0 12px var(--color-lightest);
+          color: var(--color-lightest);
+        }
+      }
+      .animate-confianza {
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+        animation: pulse-glow 6s ease-in-out infinite;
+        animation-delay: 2s; /* Start after a delay */
+      }
+      .animate-confianza:hover {
+        text-shadow: 0 0 12px var(--color-lightest);
+        color: var(--color-lightest);
+        animation: none;
+      }
+
+      /* Custom Cursor Styles */
+      html {
+        cursor: none;
+      }
+      #cursor-dot, #cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+        border-radius: 50%;
+      }
+      #cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-lightest);
+        transition: transform 0.1s ease-out;
+      }
+      #cursor-ring {
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--color-lightest);
+        opacity: 0.5;
+        transition: transform 0.2s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+      }
+      #cursor-ring.active {
+        width: 60px;
+        height: 60px;
+        border-color: var(--color-medium);
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-100" style="background-color: var(--color-darkest)">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
